@@ -1,0 +1,39 @@
+<?php 
+$enable             = $block->isEnable();
+$imageResolution    = $block->getImageResultion();
+$instangramData     = $block->getInstagramFeed();
+
+if ($enable) {
+    if(!empty($instangramData))
+    {    ?>
+        <div class="instagram">
+            <?php
+            foreach ($instangramData as $instagramFeed) {
+                $instagramImage = $instagramFeed->images->$imageResolution->url;
+                $caption_text = 'Instagram';
+                if (is_object($instagramFeed->caption)) {
+                    $caption_text = $instagramFeed->caption->text;
+                }
+                ?>
+                <div class="instagram-image">
+                    <a href ="<?php echo $instagramFeed->link; ?>" data-fancybox="gallery" target="_blank" class="instagram-link">
+                        <img src="<?php echo $instagramImage; ?>" title="<?php echo $caption_text; ?>" alt="<?php echo $caption_text; ?>"/>
+                    </a>
+                </div>
+                <?php
+            } ?>
+        </div>
+    <?php } ?>
+<?php } ?>
+
+<script>
+    require([
+        'jquery',
+        'FancyBox'
+    ], function () {
+        'use strict';
+        jQuery.noConflict();
+
+    });
+</script>
+

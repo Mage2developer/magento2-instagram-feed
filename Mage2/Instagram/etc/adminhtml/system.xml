@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <tab id="mage2_developer" translate="label" sortOrder="0">
+                <label>Mage2 Developer</label>
+            </tab>
+        <section id="instagramsection" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Instagram</label>
+            <tab>mage2_developer</tab>
+            <resource>Mage2_Instagram::instagram_config</resource>
+            <group id="instagramgroup" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="active" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable module on frontend.</comment>
+                </field>
+                <field id="mode" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Mode </label>
+                    <source_model>Mage2\Instagram\Model\Source\Mode</source_model>
+                    <comment>App status (sand box or live)</comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="userid" translate="label comment" type="obscure" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>User Id</label>
+                    <comment><![CDATA[set User Id]]></comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <depends>
+                        <field id="mode">1</field>
+                    </depends>
+                    <validate>required-entry</validate>   
+                </field>
+                <field id="accesstoken" translate="label comment" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+                    <comment><![CDATA[set Instagram Access Token]]></comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>required-entry</validate>  
+                </field>
+
+                <field id="resolution" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Resolution </label>
+                    <source_model>Mage2\Instagram\Model\Source\Resolution</source_model>
+                    <comment>Select feed image resolution</comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="image-number" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Images</label>
+                    <comment><![CDATA[Number of images are need to fetch]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>required-entry</validate>   
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
