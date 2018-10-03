@@ -11,4 +11,3 @@
 <p>Contact us at <b>sales@mage2developer.com</b> or Skype : <b>mage2developer</b> and we will be all happy to assist you!</p>
 
 <p><b>Compitable :- </b> <b>Magento 2.0.0 to 2.2.6 </b></p>
-<p><b> Demo :- </b> &nbsp; &nbsp; &nbsp; <b><a href="http://demo.mage2developer.com/" target="_blank">Front End</a></b> &nbsp; &nbsp; &nbsp; <b><a href="http://demo.mage2developer.com/admin/" target="_blank">Back End</a></b></p>
