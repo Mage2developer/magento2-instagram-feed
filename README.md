@@ -1,4 +1,4 @@
-<p><b>Features</b></p>
+<h3><b>Features</b></h3>
 <ul>
 <li>Easy to install and manage.</li>
 <li>Responsive, all device compatible.</li>
